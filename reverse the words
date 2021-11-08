@@ -1,0 +1,5 @@
+Reverse the word
+
+word=('Edyoda')
+reverse_word=word[len(word)::-1]
+print(reverse_word)
