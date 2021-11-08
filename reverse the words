@@ -1,4 +1,4 @@
-Reverse the word
+# Reverse the word
 
 word=('Edyoda')
 reverse_word=word[len(word)::-1]
