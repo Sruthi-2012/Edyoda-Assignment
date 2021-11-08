@@ -1,0 +1,12 @@
+#fibonacci series
+
+a=0
+b=1
+n=int(input('number of fibnocci series required: '))# gives us the required number of fibnocci numbers
+count=0
+while count<n:
+    print(a)
+    c=a+b
+    a=b
+    b=c
+    count+=1
