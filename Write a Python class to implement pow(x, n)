@@ -1,0 +1,13 @@
+
+
+class power_of_number:
+    def __init__(self,base,power):
+        self.base=base
+        self.power=power
+    def pow(self):
+        result=self.base**self.power
+        return result
+base=int(input("Enter the base:"))
+power=int(input("Enter the power:"))
+value1=power_of_number(base,power)
+print(value1.pow())
