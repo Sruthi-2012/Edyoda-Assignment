@@ -1,0 +1,152 @@
+
+
+class ghee_foods():
+    def login_admin_user(self):
+        print("Ghee FOODS ")
+        who=input("Admin or User? ")
+        if who=="Admin":
+            return self.admin_login()
+        else:
+            return self.user_login()
+    def admin_login(self):
+        login_credentials={"sruthi":'1234'}
+        print("Admin login" )
+        username=input("enter username: ")
+        password=input("Enter password: ")
+        if username in login_credentials.keys() and password in login_credentials.values():
+            print("Welcome to admin portal")
+            return self.admin()
+        else:
+            print("Incorrect username or password")
+    def user_login(self):
+        users={'sruthi':'1234'}
+        user_details=[]
+        print("For login press yes or no to register")
+        login_register=input()
+        if login_register=='yes':
+            print("We are happy to have you Back!!")
+            print("please enter username ")
+            username=input()
+            print("Enter password")
+            password=input()
+            if users[username]==password:
+                print("logged in")
+                return self.user()
+        elif login_register=='no':
+            print("We are happy to welcome you here")
+            print("Please register")
+            print("Enter your Fullname: ")
+            username=input()
+            print("Enter your mobile number: ")
+            mobile_number=int(input())
+            print("Enter your address: ")
+            address=input()
+            print("enter your email address: ")
+            email=input()
+            print("enter your password: ")
+            password=input()
+            users[username]=password
+            print("signup successfull")
+            print("please login now")
+            username=input("enter full name")
+            password=input("enter password ")
+            if username in users.keys() and password in users.values():
+                print("logged in")
+            else:
+                print("Invalid username or password ")
+    def admin(self):
+        functions=["add items or remove food items by food id","change price",
+                   "change discount","View of list of food items","stock left"]
+        print("select", "operation")
+        for i,j in enumerate(functions,start=1):
+            print(i,j)
+        operation=input("select the operation: ")
+        if operation=="1":
+            return self.add_delete_items()
+        if operation=="2":
+            return self.price_change()
+        if operation=="3":
+            return self.discount()
+        if operation=="4":
+            return self.menu()
+        if operation=="5":
+            return self.stock()
+    food_items=[['coke',76],['biryani',250],['tandoori_chicken',60],['vegan burger',320],['truffle_cake',900]]
+    for i,j in enumerate(food_items,start=1):
+        print(i,j)
+    def menu(self):
+        display_menu={i[0]:i[1] for i in food_items}
+        print(display_menu)
+    def add_delete_items(self):
+        print('use a for add & r for remove')
+        new_food=input('add or remove :')
+        if new_food=='a':
+            k=input('enter new food:')
+            v=input('price:')
+            u=(k,v)
+            add=food_items.append(u)   
+        else:
+            i=int(input('removal index:'))
+            del food_items[i-1]
+        for i,j in enumerate(food_items,start=1):
+            print(i,j)
+
+    def price_change(self):
+        i=int(input('enter item id'))
+        k=int(input('changing price:'))
+        food_items[i-1][1]=k
+        print(food_items)
+          
+    def stock(self):
+        total_items=int(input('enter stock:'))
+        stock=100-ordered_items
+        ordered_items=input()
+    def user(self):
+        functions=['place order','order history','update profile']
+        print("select", "operation")
+        for i,j in enumerate(functions,start=1):
+            print(i,j)
+        operation=input("select the operation: ")
+        if operation=="1":
+            return self.place_order()
+        if operation=="2":
+            return self.order_history()
+        if operation=="3":
+            return self.update_profile()
+    def update_profile(self):
+        username=input()
+        print("Enter your mobile number: ")
+        mobile_number=int(input())
+        print("Enter your address: ")
+        address=input()
+        print("enter your email address: ")
+        email=input()
+        print("enter your password: ")
+        password=input()
+    def place_order(self):
+        print("Here is the menu")
+        food_items=[['coke',76],['biryani',250],['tandoori_chicken',60],['vegan burger',320],['truffle_cake',900]]
+        for i,j in enumerate(food_items,start=1):
+            print(i,j)
+        list=[int(x) for x in input()]
+        for i in list:
+            print(food_items[i-1])
+            quantity=int(input('enter quantity:'))
+            total_bill=int((food_items[i-1][1])*quantity)
+            print (total_bill)
+        if  total_bill > 1000:
+            discount=20
+            payment_1=total_bill*0.8
+            print(payment_1)
+            return self.payment()
+        else:
+            print('Discount is for order greater than 1000')
+            return self.payment()
+    def payment(self):
+        pay=input('enter p:')
+        if pay=='p':
+            return 'order placed successfully'
+        else:
+            return 'transaction failed'
+food=ghee_foods()
+food.login_admin_user()
