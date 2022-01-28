@@ -1,0 +1,37 @@
+class Stack:
+    def _init_(self):
+        self.Elements = []
+    def push(self, value):
+        self.Elements.append(value)
+    def pop(self):
+        return self.Elements.pop()
+    def empty(self):
+        return self.Elements == []
+    def show(self):
+        for value in reversed(self.Elements):
+            print(value)
+def BottomInsert(stack, value):
+    if stack.empty():
+        stack.push(value)
+    else:
+        popped = stack.pop()
+        BottomInsert(stack, value)
+        stack.push(popped)
+def Reverse(stack):
+    if stack.empty():
+        pass
+    else:
+        popped = stack.pop()
+        Reverse(stack)
+        BottomInsert(stack, popped)
+
+s = Stack()
+k=(list(map(int,input().split(','))))
+for i in k:
+    s.push(i)
+print("Original Stack")
+s.show()
+
+print("\nStack after Reversing")
+Reverse(s)
+s.show()
