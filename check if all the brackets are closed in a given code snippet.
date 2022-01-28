@@ -1,0 +1,13 @@
+def balanced_or_not(expression):
+    stack=[]
+    brackets={')':'(',']':'[','}':'{'}
+    for i in expression:
+        if i is ']})':
+            if i not in stack or stack[-1]!=brackets[i]:
+                return False
+            stack.pop()
+        else:
+            stack.append(i)
+    return not stack
+expression=input('enter input: ')
+balanced_or_not()
