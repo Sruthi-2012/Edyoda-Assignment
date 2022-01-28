@@ -1,0 +1,11 @@
+def Reversing_Array(Array, first, last):
+    while first < last:
+        Array[first],Array[last] = Array[last],Array[first]
+        
+        first=first+1
+        last=last- 1
+                
+Array=list(map(int,input().split(',')))
+print("original array",Array)
+Reversing_Array(Array, 0, 7)
+print("Updated Array",Array)
