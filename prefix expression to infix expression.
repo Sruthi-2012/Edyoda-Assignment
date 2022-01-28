@@ -1,0 +1,31 @@
+def isOperator(x):
+    if x == "*":
+        return True
+    elif x == "+":
+        return True
+    elif x == "-" :
+        return True
+    elif x == "/":
+        return True
+    elif x == "^":
+        return True
+    elif x == "(":
+        return True
+    elif x == ")":
+        return True
+    else:
+        return False
+def prefixToInfix(prefix):
+    stack = []
+    i = len(prefix) - 1
+    while i >= 0:
+        if not isOperator(prefix[i]):
+            stack.append(prefix[i])
+            i=i-1
+        else:
+            string = stack.pop() + prefix[i] + stack.pop()
+            stack.append(string)
+            i=i-1
+            return stack.pop()
+string = input("string: ")
+prefixToInfix(string)
