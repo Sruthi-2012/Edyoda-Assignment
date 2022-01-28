@@ -1,0 +1,16 @@
+def first_non_repeating_character(string1):
+    character_order = []
+    character = {}
+    for i in string1:
+        if i in character:
+            character[i] += 1
+        else:
+            character[i] = 1 
+            character_order.append(i)
+    for i in character_order:
+        if character[i] == 1:
+            return i
+    return None
+
+string1=input('string1= ')
+first_non_repeating_character(string1)
