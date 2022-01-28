@@ -1,0 +1,12 @@
+def sum_of_pairs(array , n , sum):
+    for i in range(n):
+        for j in range(i+1 , n):
+            if array[i] + array[j] == sum:
+                print("(",array[i],",",array[j],")",sep = "")
+                
+array=list(map(int,input().split(',')))
+n = len(array)
+sum = int(input('enter sum value: '))
+
+
+sum_of_pairs(array, n, sum)
