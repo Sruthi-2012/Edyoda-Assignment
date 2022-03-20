@@ -1,0 +1,52 @@
+#Import the necessary libraries
+import pandas as pd
+
+#Assign it to a variable called users and use the 'user_id' as index
+users = pd.read_csv('assignment data.csv', index_col='user_id')
+
+users()
+
+#See the first 10 and last 10 entries
+users.head(10)
+users.tail(10)
+
+#What is the number of observations in the dataset?
+users.shape[0]
+
+#What is the number of columns in the dataset?
+users.shape[1]
+
+#Print the name of all the columns.
+users.columns
+
+#How is the dataset indexed?
+users.index
+
+#What is the data type of each column?
+users.dtypes
+
+#Print only the occupation column
+users.occupation
+
+#How many different occupations are in this dataset?
+users.occupation.nunique()
+
+#What is the most frequent occupation?
+users['occupation'].value_counts()
+users.occupation.value_counts().head(1).index[0]
+
+#DataFrame Info.
+users.info()
+
+#Describe all the columns
+users.describe(include = "all")
+
+#Summarize only the occupation column
+users.occupation.describe()
+users.occupation.value_counts()
+
+#What is the mean age of users?
+users.age.mean()
+
+#What is the age with least occurrence?
+users["age"].min()
